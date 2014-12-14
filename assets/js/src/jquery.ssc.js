@@ -3,7 +3,7 @@
  * Author: KUCKLU ( VisuAlive )
  * Created date: 11.27.2014
  * Updated date: 12.15.2014
- * Version: 1.1.0
+ * Version: 1.1.1
  * Licensed under the MIT license or GNU General Public License v2
  */
 ;(function ($, window, document, undefined) {
