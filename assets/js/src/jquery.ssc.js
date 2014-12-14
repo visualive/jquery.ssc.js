@@ -105,12 +105,12 @@
                 for (var i in this.sns) {
                     if (this.settings[i] === true) {
                         li.push(
-                            '<li class="' + String(this.listItemClass) + '-' + i +'">'
-                            + '<a class="' + String(this.anchorClass) + '" href="' + this.sns[i].url + '" target="_blank">'
-                            + '<span class="' + String(this.snsNameClass) + '">' + this._sanitizeHtml(this.sns[i].name) + '</span>'
-                            + '<span class="' + String(this.countClass) + '">0</span>'
-                            + '</a>'
-                            + '</li>'
+                            '<li class="' + String(this.listItemClass) + '-' + i +'">' +
+                            '<a class="' + String(this.anchorClass) + '" href="' + this.sns[i].url + '" target="_blank">' +
+                            '<span class="' + String(this.snsNameClass) + '">' + this._sanitizeHtml(this.sns[i].name) + '</span>' +
+                            '<span class="' + String(this.countClass) + '">0</span>' +
+                            '</a>' +
+                            '</li>'
                         );
                     }
                 }
