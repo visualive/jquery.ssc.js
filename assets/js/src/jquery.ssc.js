@@ -77,7 +77,7 @@
                 return text.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&apos;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
             },
             _sanitizeText: function (text, mode) {
-                if (text !== undefined && text !== null) {
+                if (text !== undefined || text !== null) {
                     var match = text.match(/^[\w]+$/i);
                     if (mode === 'via') {
                         return (match !== null) ? '&via=' + encodeURIComponent(match[0]) : '';
@@ -90,7 +90,7 @@
                 return '';
             },
             _sanitizeUrl: function (url) {
-                if (url !== undefined && url !== null) {
+                if (url !== undefined || url !== null) {
                     var match = url.match(/^https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+$/i);
                     return (match !== null) ? match[0] : null;
                 }
@@ -98,30 +98,30 @@
             },
             _createCountBox: function () {
                 var container = this.$container;
+                var ul        = document.createElement('ul');
+                var li        = [];
+                ul.className  = String(this.listClass);
 
-                container.append('<ul class="' + String(this.listClass) + '" />');
                 for (var i in this.sns) {
                     if (this.settings[i] === true) {
-                        container.children('.'+ String(this.listClass))
-                                    .append('<li class="' + String(this.listItemClass) + '-' + i +'" />')
-                                    .end()
-                                    .children('.' + String(this.listClass))
-                                    .children('.' + String(this.listItemClass) + '-' + i)
-                                    .append('<a class="' + String(this.anchorClass) + '" href="' + this.sns[i].url + '" target="_blank" />')
-                                    .end()
-                                    .children('.' + String(this.listItemClass) + '-' + i)
-                                    .children('.' + String(this.anchorClass))
-                                    .append('<span class="' + String(this.snsNameClass) + '" />')
-                                    .append('<span class="' + String(this.countClass) + '">0</span>')
-                                    .end()
-                                    .find('.' + String(this.snsNameClass)).text(this._sanitizeHtml(this.sns[i].name));
+                        li.push(
+                            '<li class="' + String(this.listItemClass) + '-' + i +'">'
+                            + '<a class="' + String(this.anchorClass) + '" href="' + this.sns[i].url + '" target="_blank">'
+                            + '<span class="' + String(this.snsNameClass) + '">' + this._sanitizeHtml(this.sns[i].name) + '</span>'
+                            + '<span class="' + String(this.countClass) + '">0</span>'
+                            + '</a>'
+                            + '</li>'
+                        );
                     }
                 }
+
+                container[0].appendChild(ul);
+                ul.insertAdjacentHTML('afterbegin', li.join(''));
             },
             _countElements: function (snsName) {
                 var container = this.$container;
 
-                return container.children('.' + String(this.listClass)).children('.' + String(this.listItemClass) + '-' + snsName).find('.' + String(this.countClass));
+                return container.find('.' + String(this.listItemClass) + '-' + snsName).find('.' + String(this.countClass));
             },
             _facebook: function () {
                 var countElements = this._countElements('facebook');
