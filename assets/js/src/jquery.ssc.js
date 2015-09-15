@@ -2,8 +2,8 @@
  * Social Shared Count - jQuery plugin
  * Author: KUCKLU ( VisuAlive )
  * Created date: 11.27.2014
- * Updated date: 09.15.2015
- * Version: 1.1.2
+ * Updated date: 09.16.2015
+ * Version: 1.1.3
  * Licensed under the MIT license or GNU General Public License v2
  */
 ;(function ($, window, document, undefined) {
@@ -136,7 +136,7 @@
 						format: 'json'
 					},
 					success: function(data) {
-						var count = sscNumberFormat(data[0].share_count);
+						var count = sscNumberFormat(data[0].share_count + data[0].like_count);
 
 						countElements.text(count);
 					},
