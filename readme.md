@@ -6,6 +6,8 @@
 Licensed under the MIT license or GNU General Public License v2
 
 ## Change logs
+* Version: 1.1.2  
+Add linkedin.
 * Version: 1.1.1  
 Bug fix.
 * Version: 1.1.0  
