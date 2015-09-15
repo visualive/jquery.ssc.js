@@ -3,7 +3,7 @@
  * Author: KUCKLU ( VisuAlive )
  * Created date: 11.27.2014
  * Updated date: 09.16.2015
- * Version: 1.1.3
+ * Version: 1.1.4
  * Licensed under the MIT license or GNU General Public License v2
  */
 ;(function ($, window, document, undefined) {
@@ -106,7 +106,7 @@
 				for (var i in this.sns) {
 					if (this.settings[i] === true) {
 						li.push(
-							'<li class="' + String(this.listItemClass) + '-' + i +'">' +
+							'<li class="' + String(this.listItemClass) + ' ' + String(this.listItemClass) + '-' + i +'">' +
 							'<a class="' + String(this.anchorClass) + '" href="' + this.sns[i].url + '" target="_blank">' +
 							'<span class="' + String(this.snsNameClass) + '">' + this._sanitizeHtml(this.sns[i].name) + '</span>' +
 							'<span class="' + String(this.countClass) + '">0</span>' +
