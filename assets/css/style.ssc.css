@@ -1,3 +1,16 @@
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin-left: 0;
+}
+
+pre {
+	margin: 0;
+	padding: 0;
+}
+
 .socialSharedCount_list {
 	position: relative;
 	overflow: hidden;

@@ -1,37 +1,96 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>Social Shared Count Demo</title>
-    <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css">
-    <link rel="stylesheet" href="./assets/css/style.ssc.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social Shared Count Demo</title>
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="//kuck1u.github.io">
+<link rel="stylesheet prefetch" src="https://normalize-css.googlecode.com/svn/trunk/normalize.css">
+<link rel="stylesheet prefetch" href="https://kuck1u.github.io/jquery.ssc.js/assets/css/style.ssc.min.css">
+<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/monokai_sublime.min.css">
 </head>
 <body>
-    <h1>Social Shared Count Demo</h1>
-    <h2>www.google.com</h2>
-    <div class="socialSharedCount" data-ssc-url="https://www.google.com/" data-ssc-title="Google"></div>
-    <h2>www.yahoo.com</h2>
-    <div class="socialSharedCount" data-ssc-url="https://www.yahoo.com/" data-ssc-title="Yahoo!"></div>
-    <h2>www.msn.com</h2>
-    <div class="socialSharedCount" data-ssc-url="https://www.msn.com/" data-ssc-title="MSN"></div>
-    <h2>designinglabo.com/388/sass_foundation.html</h2>
-    <div class="socialSharedCount" data-ssc-url="http://designinglabo.com/734/review_wn_ac1600dgr3.html" data-ssc-title="Wi-Fi ルーターを 802.11ac 対応の I-O DATA WN-AC1600DGR3 にしてみた"></div>
+<h1>Social Shared Count Demo</h1>
+<p>Can get the count that your URL has been shared on social networking sites. This is dependent on jQuery. </p>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="./assets/js/dist/jquery.ssc.min.js"></script>
+<h2>Download jquery.ssc.js</h2>
+<a href="https://github.com/kuck1u/jquery.ssc.js">https://github.com/kuck1u/jquery.ssc.js</a>
+
+<h2>Set up</h2>
+<dl>
+	<dt>head inclusions:</dt>
+	<dd>
+		<pre>
+			<code>
+				&lt;link rel="stylesheet" type="text/css" href="css/style.css" media="all"&gt;
+				&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"&gt;&lt;/script&gt;
+				&lt;script src="assets/js/dist/jquery.ssc.min.js"&gt;&lt;/script&gt;
+			</code>
+		</pre>
+	</dd>
+	<dt>JS call:</dt>
+	<dd>
+		<pre>
+			<code>
+				&lt;script&gt;
+					(function($){
+						$(".socialSharedCount").socialSharedCount({
+							facebook: true,
+							twitter: true,
+							google: true,
+							pocket: true,
+							hatena: true,
+							linkedin: true,
+							twitterVia: 'kuck1u',
+							twitterRelated: 'visualive_jp'
+						});
+					})(jQuery);
+				&lt;/script&gt;
+			</code>
+		</pre>
+	</dd>
+	<dt>HTML constructor:</dt>
+	<dd>
+		<pre>
+			<code>
+				&lt;div class="socialSharedCount" data-ssc-url="https://www.google.com/" data-ssc-title="Google"&gt;&lt;/div&gt;
+			</code>
+		</pre>
+	</dd>
+</dl>
+
+<h2>Example</h2>
+<h3>www.google.com</h3>
+<div class="socialSharedCount" data-ssc-url="https://www.google.com/" data-ssc-title="Google"></div>
+<h3>www.yahoo.com</h3>
+<div class="socialSharedCount" data-ssc-url="https://www.yahoo.com/" data-ssc-title="Yahoo!"></div>
+<h3>www.msn.com</h3>
+<div class="socialSharedCount" data-ssc-url="https://www.msn.com/" data-ssc-title="MSN"></div>
+<h3>designinglabo.com/388/sass_foundation.html</h3>
+<div class="socialSharedCount" data-ssc-url="http://designinglabo.com/388/sass_foundation.html" data-ssc-title="初心者向け！CSSフレームワークFOUNDATIONのSASS版を使用する為の環境構築。"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+<script src="https://kuck1u.github.io/jquery.ssc.js/assets/js/dist/jquery.ssc.min.js"></script>
 <script>
-// Run the Social Shared Count.
 (function($){
-    $(".socialSharedCount").socialSharedCount({
-        facebook: true,
-        twitter: true,
-        google: true,
-        pocket: true,
-        hatena: true,
-        linkedin: true,
-        twitterVia: 'kuck1u',
-        twitterRelated: 'visualive_jp'
-    });
+		// Run the Social Shared Count.
+		$(".socialSharedCount").socialSharedCount({
+				facebook: true,
+				twitter: true,
+				google: true,
+				pocket: true,
+				hatena: true,
+				linkedin: true,
+				twitterVia: 'kuck1u',
+				twitterRelated: 'visualive_jp'
+		});
+
+		// Run the highlight.
+		$('pre code').each(function(i, block) {
+				hljs.highlightBlock(block);
+		});
 })(jQuery);
 </script>
 </body>
