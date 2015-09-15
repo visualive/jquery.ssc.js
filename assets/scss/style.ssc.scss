@@ -1,3 +1,14 @@
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0;
+}
+pre {
+  margin: 0;
+  padding: 0;
+}
+
 .socialSharedCount_list {
   list-style-type: none;
   margin: 0;
@@ -5,21 +16,21 @@
   padding: 0;
   position: relative;
   &_items {
-	float: left;
-	margin-left: 16px;
-	&:first-child {
-	  margin-left: 0;
-	}
+    float: left;
+    margin-left: 16px;
+    &:first-child {
+      margin-left: 0;
+    }
   }
   &_items_anchor {
-	color: inherit;
-	display: block;
-	overflow: hidden;
-	position: relative;
-	text-decoration: none;
+    color: inherit;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
   }
   &_items_name,
   &_items_count {
-	display: block;
+    display: block;
   }
 }
