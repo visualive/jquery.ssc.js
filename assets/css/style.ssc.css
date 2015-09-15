@@ -1,11 +1,24 @@
 .socialSharedCount_list {
+	position: relative;
+	overflow: hidden;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 }
 
+.socialSharedCount_list_items {
+	float: left;
+	margin-left: 16px;
+}
+
+.socialSharedCount_list_items:first-child {
+	margin-left: 0;
+}
+
 .socialSharedCount_list_items_anchor {
 	position: relative;
+	display: block;
+	overflow: hidden;
 	text-decoration: none;
 	color: inherit;
 }
