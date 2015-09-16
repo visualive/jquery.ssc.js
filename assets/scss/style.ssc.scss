@@ -1,7 +1,10 @@
+$medium-down: "only screen and (max-width: 768px)";
+
+
 .socialSharedCount_list {
   color: #666;
   font-size: 14px;
-  @media only screen and (max-width: 414px) {
+  @media #{$medium-down} {
     font-size: 12px;
   }
   line-height: 1;
@@ -15,7 +18,7 @@
     float: left;
     margin-bottom: 12px;
     margin-right: 12px;
-    @media only screen and (max-width: 414px) {
+    @media #{$medium-down} {
       margin-right: 0;
       width: 20%;
     }
@@ -29,9 +32,17 @@
     &_count {
       height: 21px;
       line-height: 20px;
-      @media only screen and (max-width: 414px) {
+    }
+
+    @media #{$medium-down} {
+      &_anchor {
         height: 42px;
-        line-height: 40px;
+        line-height: normal;
+      }
+      &_name,
+      &_count {
+        height: auto;
+        line-height: normal;
       }
     }
 
@@ -52,19 +63,24 @@
       border: solid 1px #767676;
       border-right: none;
       border-radius: 4px 0 0 4px;
-      @media only screen and (max-width: 414px) {
+      @media #{$medium-down} {
         border-radius: 0;
       }
       color: #fff;
       display: inline-block;
       float: left;
+      @media #{$medium-down} {
+        float: none;
+      }
       letter-spacing: 0.1em;
-      @media only screen and (max-width: 414px) {
+      @media #{$medium-down} {
         letter-spacing: 0;
       }
       padding: 0 12px 0 8px;
-      @media only screen and (max-width: 414px) {
-        padding: 0;
+      @media #{$medium-down} {
+        padding: 2px 0 0;
+      }
+      @media #{$medium-down} {
         text-align: center;
         width: 100%;
       }
@@ -74,14 +90,24 @@
       background-color: #fff;
       border: solid 1px #767676;
       border-radius: 0 4px 4px 0;
-      @media only screen and (max-width: 414px) {
+      @media #{$medium-down} {
         border-radius: 0;
       }
       display: inline-block;
       float: left;
+      @media #{$medium-down} {
+        float: none;
+      }
       margin: 0;
       padding: 0 8px;
+      @media #{$medium-down} {
+        padding: 2px 0 0;
+      }
       position: relative;
+      @media #{$medium-down} {
+        text-align: center;
+        width: 100%;
+      }
       &:before,
       &:after {
         border: solid 6px transparent;
@@ -95,6 +121,12 @@
         border-right: solid 8px #fff;
         left: -12px;
         top: 3px;
+      }
+      @media #{$medium-down} {
+        &:before,
+        &:after {
+          content: none;
+        }
       }
     }
   }
@@ -116,6 +148,7 @@
     }
     .socialSharedCount_list_items_count {
       border-color: #55acee;
+
     }
   }
 
@@ -150,7 +183,7 @@
   }
 
   &_items-pocket {
-    @media only screen and (max-width: 414px) {
+    @media #{$medium-down} {
       display: none;
     }
     .socialSharedCount_list_items_name {
