@@ -1,0 +1,154 @@
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+$rem-base: 16px;
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: $rem-base) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+
+  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+
+@function em-calc($values) {
+  $remValues: rem-calc($values);
+
+  $max: length($remValues);
+
+  @if $max == 1 { @return strip-unit(nth($remValues, 1)) * 1em; }
+
+  $emValues: ();
+  @for $i from 1 through $max {
+    $emValues: append($emValues, strip-unit(nth($remValues, $i)) * 1em);
+  }
+  @return $emValues;
+}
+
+//// END foundation function ////
+
+body {
+  color: #666;
+}
+
+address,
+dl,
+hr,
+ul,
+ol,
+p,
+section,
+pre,
+table {
+  margin-top: 0;
+  margin-bottom: em-calc($rem-base + 12);
+}
+
+h1,
+h2,
+h3,
+p,
+div {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+h2 {
+  font-size: rem-calc($rem-base * 1.5);
+  line-height: (($rem-base * 1.5) + 12) / ($rem-base * 1.5);
+  margin-bottom: em-calc($rem-base);
+  position: relative;
+}
+
+section > h2 {
+  padding-top: ($rem-base + 12) * 3;
+  &:before {
+    background-color: #e4e4e4;
+    content: ' ';
+    height: 1px;
+    margin-left: -(170px / 2);
+    margin-top: ($rem-base + 12);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 170px;
+  }
+}
+
+section.download > h2 {
+  padding-top: 0;
+  &:before {
+    content: none;
+  }
+}
+
+h3 {
+  font-size: rem-calc($rem-base * 1.25);
+  line-height: (($rem-base * 1.25) + 12) / ($rem-base * 1.25);
+  margin-bottom: 4px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: $rem-base;
+  line-height: ($rem-base + 12) / $rem-base;
+  margin-bottom: 0;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+pre {
+  margin-top: 0;
+  padding: 0;
+  word-wrap: normal;
+}
+
+.header {
+  background-image: url(../img/10556.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 36px;
+  padding: 15% 0;
+  text-align: center;
+  &_title,
+  &_content {
+    color: #fff;
+  }
+}
+.footer {
+  background-color: #1c222a;
+  border-top: solid 3px #feeeed;
+  margin-top: 36px;
+  &_copyright {
+    font-size: 12px;
+    line-height: 2.08333;
+    margin: 0;
+    padding: 16px 0;
+    text-align: center;
+  }
+}
+
+@import "style.ssc";
