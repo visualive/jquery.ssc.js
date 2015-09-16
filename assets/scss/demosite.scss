@@ -90,13 +90,6 @@ section > h2 {
   }
 }
 
-section.download > h2 {
-  padding-top: 0;
-  &:before {
-    content: none;
-  }
-}
-
 h3 {
   font-size: rem-calc($rem-base * 1.25);
   line-height: (($rem-base * 1.25) + 12) / ($rem-base * 1.25);

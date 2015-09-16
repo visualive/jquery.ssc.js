@@ -47,14 +47,6 @@ section > h2:before {
 	background-color: #e4e4e4;
 }
 
-section.download > h2 {
-	padding-top: 0;
-}
-
-section.download > h2:before {
-	content: none;
-}
-
 h3 {
 	font-size: 1.25rem;
 	line-height: 1.6;
