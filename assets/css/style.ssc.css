@@ -132,7 +132,7 @@
 	border-color: #d3505a;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 414px) {
 
 .socialSharedCount_list {
 	font-size: 12px;
