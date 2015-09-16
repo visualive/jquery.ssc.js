@@ -246,7 +246,7 @@ pre {
 	border-color: #d3505a;
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 768px) {
 
 .socialSharedCount_list {
 	font-size: 12px;
@@ -257,15 +257,23 @@ pre {
 	margin-right: 0;
 }
 
-.socialSharedCount_list_items_anchor,
+.socialSharedCount_list_items_anchor {
+	line-height: normal;
+	height: 42px;
+}
+
 .socialSharedCount_list_items_name,
 .socialSharedCount_list_items_count {
-	line-height: 40px;
-	height: 42px;
+	line-height: normal;
+	height: auto;
 }
 
 .socialSharedCount_list_items_name {
 	border-radius: 0;
+}
+
+.socialSharedCount_list_items_name {
+	float: none;
 }
 
 .socialSharedCount_list_items_name {
@@ -273,13 +281,34 @@ pre {
 }
 
 .socialSharedCount_list_items_name {
+	padding: 2px 0 0;
+}
+
+.socialSharedCount_list_items_name {
 	width: 100%;
-	padding: 0;
 	text-align: center;
 }
 
 .socialSharedCount_list_items_count {
 	border-radius: 0;
+}
+
+.socialSharedCount_list_items_count {
+	float: none;
+}
+
+.socialSharedCount_list_items_count {
+	padding: 2px 0 0;
+}
+
+.socialSharedCount_list_items_count {
+	width: 100%;
+	text-align: center;
+}
+
+.socialSharedCount_list_items_count:before,
+.socialSharedCount_list_items_count:after {
+	content: none;
 }
 
 .socialSharedCount_list_items-pocket {
