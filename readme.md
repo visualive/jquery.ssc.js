@@ -6,6 +6,8 @@
 Licensed under the MIT license or GNU General Public License v2
 
 ## Change logs
+* Version: 1.1.5  
+Add button design.
 * Version: 1.1.4  
 Add CSS Class.
 * Version: 1.1.3  
