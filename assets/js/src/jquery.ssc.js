@@ -2,8 +2,8 @@
  * Social Shared Count - jQuery plugin
  * Author: KUCKLU ( VisuAlive )
  * Created date: 11.27.2014
- * Updated date: 09.16.2015
- * Version: 1.1.5
+ * Updated date: 09.18.2015
+ * Version: 1.1.6
  * Licensed under the MIT license or GNU General Public License v2
  */
 ;(function ($, window, document, undefined) {
@@ -264,4 +264,4 @@
 	};
 
 	return ClassSocialSharedCount;
-})(jQuery, window, document);
+})(window.jQuery||window.Zepto, window, document);
