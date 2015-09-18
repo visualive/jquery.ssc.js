@@ -28,7 +28,7 @@ ga('send', 'pageview');
     <div class="row">
         <div class="small-12 columns">
             <h1 class="header_title">Social Shared Count Demo</h1>
-            <p class="header_content">Can get the count that your URL has been shared on social networking sites. This is dependent on jQuery.</p>
+            <p class="header_content">Can get the count that your URL has been shared on social networking sites. This is dependent on jQuery or Zepto.</p>
         </div>
     </div>
 </header>
@@ -53,10 +53,16 @@ ga('send', 'pageview');
         <section class="setup">
             <h2>Set up</h2>
             <dl>
-                <dt>head inclusions:</dt>
+                <dt>head inclusions ( jQuery ):</dt>
                 <dd>
                     <pre><code>&lt;link rel="stylesheet" type="text/css" href="assets/css/style.ssc.min.css" media="all"&gt;
-&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="assets/js/dist/jquery.ssc.min.js"&gt;&lt;/script&gt;</code></pre>
+                </dd>
+                <dt>head inclusions ( Zepto ):</dt>
+                <dd>
+                    <pre><code>&lt;link rel="stylesheet" type="text/css" href="assets/css/style.ssc.min.css" media="all"&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"&gt;&lt;/script&gt;
 &lt;script src="assets/js/dist/jquery.ssc.min.js"&gt;&lt;/script&gt;</code></pre>
                 </dd>
                 <dt>JS call:</dt>
@@ -113,9 +119,9 @@ $(".socialSharedCount").socialSharedCount({
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/vendor/modernizr.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/vendor/fastclick.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
-<script src="https://kuck1u.github.io/jquery.ssc.js/assets/js/dist/jquery.ssc.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+<script src="./assets/js/dist/jquery.ssc.min.js"></script>
 <script>
 (function($){
     // Run the Social Shared Count.
@@ -134,7 +140,7 @@ $(".socialSharedCount").socialSharedCount({
     $('pre code').each(function(i, block) {
         hljs.highlightBlock(block);
     });
-})(jQuery);
+})(window.jQuery||window.Zepto);
 </script>
 </body>
 </html>
