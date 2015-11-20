@@ -156,7 +156,7 @@ ga('send', 'pageview');
         hljs.highlightBlock(block);
     });
 
-    if (!('ab' in window)) {
+    if (!('ab' in window) || !('adsbygoogle' in window)) {
         $('.footer_copyright_text').text('Copyright (C) 2015 KUCKLU &amp; VisuAlive - Social Shared Count -');
     }
 })(window.jQuery||window.Zepto);
