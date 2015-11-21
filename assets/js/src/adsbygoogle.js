@@ -1,1 +1,0 @@
-window.ab = false;

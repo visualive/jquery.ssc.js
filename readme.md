@@ -2,7 +2,7 @@
 
 Can get the count that your URL has been shared on social networking sites. This is dependent on jQuery or Zepto.
 
-[Demo & Document](http://kuck1u.github.io/jquery.ssc.js/)
+[Demo & Document](http://visualive.github.io/jquery.ssc.js/)
 
 ## License
 
