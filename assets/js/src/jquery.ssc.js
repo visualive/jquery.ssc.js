@@ -140,7 +140,7 @@
 
 						countElements.text(count);
 					},
-					error: function(XMLHttpRequest, textStatus, errorThrown) {
+					error: function(XMLHttpRequest, textStatus) {
 						countElements.text(0);
 					}
 				});
@@ -160,7 +160,7 @@
 
 						countElements.text(count);
 					},
-					error: function(XMLHttpRequest, textStatus, errorThrown) {
+					error: function(XMLHttpRequest, textStatus) {
 						countElements.text(0);
 					}
 				});
@@ -184,7 +184,7 @@
 
 						countElements.text(count);
 					},
-					error: function(XMLHttpRequest, textStatus, errorThrown) {
+					error: function(XMLHttpRequest, textStatus) {
 						countElements.text(0);
 					}
 				});
@@ -204,7 +204,7 @@
 
 						countElements.text(count);
 					},
-					error: function(XMLHttpRequest, textStatus, errorThrown) {
+					error: function(XMLHttpRequest, textStatus) {
 						countElements.text(0);
 					}
 				});
@@ -224,7 +224,7 @@
 
 						countElements.text(count);
 					},
-					error: function(XMLHttpRequest, textStatus, errorThrown) {
+					error: function(XMLHttpRequest, textStatus) {
 						countElements.text(0);
 					}
 				});
@@ -248,7 +248,7 @@
 
 						countElements.text(count);
 					},
-					error: function(XMLHttpRequest, textStatus, errorThrown) {
+					error: function(XMLHttpRequest, textStatus) {
 						countElements.text(0);
 					}
 				});
