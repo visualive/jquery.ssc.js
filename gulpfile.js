@@ -13,7 +13,7 @@ var gulp        = require("gulp"),
         jsDist:       "assets/js/dist/**/*.js",
         jsDir:        "assets/js/",
         jsSrcDir:     "assets/js/src/",
-        jsDestDir:    "assets/js/dist/",
+        jsDestDir:    "assets/js/dist/"
     };
 
 // ===== Scss build ===== //
