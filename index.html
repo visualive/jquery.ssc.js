@@ -26,6 +26,7 @@
 <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.min.css">
 <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/monokai_sublime.min.css">
 <link rel="stylesheet prefetch" href="./assets/css/demosite.min.css">
+<script src="./assets/js/dist/adsbygoogle.js"></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -122,6 +123,22 @@ ga('send', 'pageview');
     </div>
 </div>
 
+<div class="row">
+    <div class="small-12 columns">
+        <div class="ad" style="text-align: center; margin: 0 auto;">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle adsbygoogle-b2"
+                 style="display:block"
+                 data-ad-client="ca-pub-0310900629682793"
+                 data-ad-slot="3722193340"
+                 data-adtest="on"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+</div>
+
 <footer class="footer">
     <div class="row">
         <div class="small-12 columns">
@@ -153,6 +170,10 @@ ga('send', 'pageview');
     $('pre code').each(function(i, block) {
         hljs.highlightBlock(block);
     });
+
+    if (!('ab' in window) || !('loaded' in window.adsbygoogle)) {
+        $('.footer_copyright_text').text('Copyright (C) 2015 KUCKLU &amp; VisuAlive - Social Shared Count');
+    }
 })(window.jQuery||window.Zepto);
 </script>
 </body>
