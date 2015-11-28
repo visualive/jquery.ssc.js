@@ -99,17 +99,17 @@
     //"maxparams": 5,
 
     // ブロックのネスト数を制限する。
-    //"maxdepth": 5,
+    "maxdepth": 5,
 
     // 1つの関数に含められるステートメントの数を制限する。
-    //"maxstatements": 10,
+    "maxstatements": 10,
 
     // 循環的複雑度（cyclomatic complexity）を制限する。
     // 循環的複雑度っていうのはコードの複雑さの指標で、詳しくはWikipedia参照。
-    //"maxcomplexity": 10,
+    "maxcomplexity": 10,
 
     // 1行あたりの最大文字数を制限する。
-    "maxlen": 90,
+    //"maxlen": 90,
 
 
     /*
