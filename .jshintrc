@@ -10,7 +10,7 @@
 
     // 変数名をキャメルケース、または大文字のアンダースコア区切りのみとする。
     // (ex) camelCase、UPPER_CASE
-    "camelcase": true,
+    "camelcase": false,
 
     // ループや条件分岐のブロックをブレイス{}で囲うことを強制する。
     "curly": true,
