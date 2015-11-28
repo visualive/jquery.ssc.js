@@ -1,4 +1,7 @@
 linter:
+  jshint:
+    options:
+      config: '.jshintrc'
   eslint:
     options:
       config: '.eslintrc'
