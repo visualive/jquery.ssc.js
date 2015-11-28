@@ -106,10 +106,10 @@
 				for (var i in this.sns) {
 					if (this.settings[i] === true) {
 						li.push(
-							"<li class="" + String(this.listItemClass) + " " + String(this.listItemClass) + "-" + i +"">" +
-							"<a class="" + String(this.anchorClass) + "" href="" + this.sns[i].url + "" target="_blank">" +
-							"<span class="" + String(this.snsNameClass) + "">" + this._sanitizeHtml(this.sns[i].name) + "</span>" +
-							"<span class="" + String(this.countClass) + "">0</span>" +
+							"<li class=\"" + String(this.listItemClass) + " " + String(this.listItemClass) + "-" + i + "\">" +
+							"<a class=\"" + String(this.anchorClass) + "\" href=\"" + this.sns[i].url + "\" target=\"_blank\">" +
+							"<span class=\"" + String(this.snsNameClass) + "\">" + this._sanitizeHtml(this.sns[i].name) + "</span>" +
+							"<span class=\"" + String(this.countClass) + "\">0</span>" +
 							"</a>" +
 							"</li>"
 						);
@@ -173,7 +173,7 @@
 					dataType: "xml",
 					url: "https://query.yahooapis.com/v1/public/yql",
 					data: {
-						q: "SELECT content FROM data.headers WHERE url="https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + this.$url + "" and ua="#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36"",
+						q: "SELECT content FROM data.headers WHERE url=\"https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + this.$url + "\" and ua=\"#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36\"",
 						format: "xml",
 						env: "http://datatables.org/alltables.env"
 					},
@@ -237,7 +237,7 @@
 					dataType: "xml",
 					url: "https://query.yahooapis.com/v1/public/yql",
 					data: {
-						q: "SELECT content FROM data.headers WHERE url="https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url=" + this.$url + "" and ua="#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36"",
+						q: "SELECT content FROM data.headers WHERE url=\"https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url=" + this.$url + "\" and ua=\"#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36\"",
 						format: "xml",
 						env: "http://datatables.org/alltables.env"
 					},
