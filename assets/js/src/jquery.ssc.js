@@ -28,13 +28,13 @@
 			return 0;
 		}
 		if (num >= 1000000000) {
-			return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'G';
+			return (num / 1000000000).toFixed(1).replace(/\.0$/, "") + "G";
 		}
 		if (num >= 1000000) {
-			return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+			return (num / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
 		}
 		if (num >= 1000) {
-			return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+			return (num / 1000).toFixed(1).replace(/\.0$/, "") + "K";
 		}
 
 		return num;
@@ -46,21 +46,21 @@
 				this.settings      = $.extend({}, defaults, options);
 				this.triggerHolder = triggerHolder;
 				this.$container    = $(triggerHolder);
-				this.$url          = $(triggerHolder).attr('data-ssc-url');
-				this.$title        = $(triggerHolder).attr('data-ssc-title');
+				this.$url          = $(triggerHolder).attr("data-ssc-url");
+				this.$title        = $(triggerHolder).attr("data-ssc-title");
 				this.sns           = {
-					'facebook':{'name':'Facebook','url':'https://www.facebook.com/sharer/sharer.php?t=' + encodeURIComponent(this.$title) + '&u=' + encodeURIComponent(this._sanitizeUrl(this.$url))},
-					'twitter':{'name':'Twitter','url':'https://twitter.com/intent/tweet?text=' + encodeURIComponent(this.$title) + '&url=' + encodeURIComponent(this._sanitizeUrl(this.$url)) + this._sanitizeText(this.settings.twitterVia, 'via') + this._sanitizeText(this.settings.twitterRelated, 'related')},
-					'google':{'name':'Google+','url':'https://plus.google.com/share?hl=' + encodeURIComponent(this.$title) + '&url=' + encodeURIComponent(this._sanitizeUrl(this.$url))},
-					'hatena':{'name':'Hatena','url':'http://b.hatena.ne.jp/append?' + encodeURIComponent(this._sanitizeUrl(this.$url))},
-					'linkedin':{'name':'LinkedIn','url':'https://www.linkedin.com/shareArticle?mini=true&title=' + encodeURIComponent(this.$title) + '&url=' + encodeURIComponent(this._sanitizeUrl(this.$url))},
-					'pocket':{'name':'Pocket','url':'https://getpocket.com/save?title=' + encodeURIComponent(this.$title) + '&url=' + encodeURIComponent(this._sanitizeUrl(this.$url))}
+					"facebook":{"name":"Facebook","url":"https://www.facebook.com/sharer/sharer.php?t=" + encodeURIComponent(this.$title) + "&u=" + encodeURIComponent(this._sanitizeUrl(this.$url))},
+					"twitter":{"name":"Twitter","url":"https://twitter.com/intent/tweet?text=" + encodeURIComponent(this.$title) + "&url=" + encodeURIComponent(this._sanitizeUrl(this.$url)) + this._sanitizeText(this.settings.twitterVia, "via") + this._sanitizeText(this.settings.twitterRelated, "related")},
+					"google":{"name":"Google+","url":"https://plus.google.com/share?hl=" + encodeURIComponent(this.$title) + "&url=" + encodeURIComponent(this._sanitizeUrl(this.$url))},
+					"hatena":{"name":"Hatena","url":"http://b.hatena.ne.jp/append?" + encodeURIComponent(this._sanitizeUrl(this.$url))},
+					"linkedin":{"name":"LinkedIn","url":"https://www.linkedin.com/shareArticle?mini=true&title=" + encodeURIComponent(this.$title) + "&url=" + encodeURIComponent(this._sanitizeUrl(this.$url))},
+					"pocket":{"name":"Pocket","url":"https://getpocket.com/save?title=" + encodeURIComponent(this.$title) + "&url=" + encodeURIComponent(this._sanitizeUrl(this.$url))}
 				};
-				this.listClass     = String(this.triggerHolder.className) +'_list';
-				this.listItemClass = String(this.listClass) +'_items';
-				this.anchorClass   = String(this.listItemClass) +'_anchor';
-				this.snsNameClass  = String(this.listItemClass) +'_name';
-				this.countClass    = String(this.listItemClass) +'_count';
+				this.listClass     = String(this.triggerHolder.className) + "_list";
+				this.listItemClass = String(this.listClass) + "_items";
+				this.anchorClass   = String(this.listItemClass) + "_anchor";
+				this.snsNameClass  = String(this.listItemClass) + "_name";
+				this.countClass    = String(this.listItemClass) + "_count";
 
 				if (!this.$url || this._sanitizeUrl(this.$url) === null || !this.$title) {
 					return;
@@ -75,57 +75,57 @@
 				}
 			},
 			_sanitizeHtml: function (text) {
-				return text.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&apos;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+				return text.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/"/g, "&apos;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 			},
 			_sanitizeText: function (text, mode) {
 				if (text !== undefined || text !== null) {
 					var match = text.match(/^[\w]+$/i);
-					if (mode === 'via') {
-						return (match !== null) ? '&via=' + encodeURIComponent(match[0]) : '';
-					} else if (mode === 'related') {
-						return (match !== null) ? '&related=' + encodeURIComponent(match[0]) : '';
+					if (mode === "via") {
+						return (match !== null) ? "&via=" + encodeURIComponent(match[0]) : "";
+					} else if (mode === "related") {
+						return (match !== null) ? "&related=" + encodeURIComponent(match[0]) : "";
 					} else {
-						return (match !== null) ? match[0] : '';
+						return (match !== null) ? match[0] : "";
 					}
 				}
-				return '';
+				return "";
 			},
 			_sanitizeUrl: function (url) {
 				if (url !== undefined || url !== null) {
-					var match = url.match(/^https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+$/i);
+					var match = url.match(/^https?:\/\/[-_.!~*\"()a-zA-Z0-9;\/?:\@&=+\$,%#]+$/i);
 					return (match !== null) ? match[0] : null;
 				}
-				return '';
+				return "";
 			},
 			_createCountBox: function () {
 				var container = this.$container;
-				var ul        = document.createElement('ul');
+				var ul        = document.createElement("ul");
 				var li        = [];
 				ul.className  = String(this.listClass);
 
 				for (var i in this.sns) {
 					if (this.settings[i] === true) {
 						li.push(
-							'<li class="' + String(this.listItemClass) + ' ' + String(this.listItemClass) + '-' + i +'">' +
-							'<a class="' + String(this.anchorClass) + '" href="' + this.sns[i].url + '" target="_blank">' +
-							'<span class="' + String(this.snsNameClass) + '">' + this._sanitizeHtml(this.sns[i].name) + '</span>' +
-							'<span class="' + String(this.countClass) + '">0</span>' +
-							'</a>' +
-							'</li>'
+							"<li class="" + String(this.listItemClass) + " " + String(this.listItemClass) + "-" + i +"">" +
+							"<a class="" + String(this.anchorClass) + "" href="" + this.sns[i].url + "" target="_blank">" +
+							"<span class="" + String(this.snsNameClass) + "">" + this._sanitizeHtml(this.sns[i].name) + "</span>" +
+							"<span class="" + String(this.countClass) + "">0</span>" +
+							"</a>" +
+							"</li>"
 						);
 					}
 				}
 
 				container[0].appendChild(ul);
-				ul.insertAdjacentHTML('afterbegin', li.join(''));
+				ul.insertAdjacentHTML("afterbegin", li.join(""));
 			},
 			_countElements: function (snsName) {
 				var container = this.$container;
 
-				return container.find('.' + String(this.listItemClass) + '-' + snsName).find('.' + String(this.countClass));
+				return container.find("." + String(this.listItemClass) + "-" + snsName).find("." + String(this.countClass));
 			},
 			_facebook: function () {
-				var countElements = this._countElements('facebook');
+				var countElements = this._countElements("facebook");
 
 				$.ajax({
 					type: "GET",
@@ -133,7 +133,7 @@
 					url: "https://api.facebook.com/method/links.getStats?callback=?",
 					data: {
 						urls: this.$url,
-						format: 'json'
+						format: "json"
 					},
 					success: function(data) {
 						var count = sscNumberFormat(data[0].share_count + data[0].like_count);
@@ -146,7 +146,7 @@
 				});
 			},
 			_twitter: function () {
-				var countElements = this._countElements('twitter');
+				var countElements = this._countElements("twitter");
 
 				$.ajax({
 					type: "GET",
@@ -166,14 +166,14 @@
 				});
 			},
 			_google: function () {
-				var countElements = this._countElements('google');
+				var countElements = this._countElements("google");
 
 				$.ajax({
 					type: "GET",
 					dataType: "xml",
 					url: "https://query.yahooapis.com/v1/public/yql",
 					data: {
-						q: "SELECT content FROM data.headers WHERE url='https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + this.$url + "' and ua='#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36'",
+						q: "SELECT content FROM data.headers WHERE url="https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + this.$url + "" and ua="#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36"",
 						format: "xml",
 						env: "http://datatables.org/alltables.env"
 					},
@@ -190,7 +190,7 @@
 				});
 			},
 			_hatena: function () {
-				var countElements = this._countElements('hatena');
+				var countElements = this._countElements("hatena");
 
 				$.ajax({
 					type: "GET",
@@ -210,7 +210,7 @@
 				});
 			},
 			_linkedin: function () {
-				var countElements = this._countElements('linkedin');
+				var countElements = this._countElements("linkedin");
 
 				$.ajax({
 					type: "GET",
@@ -230,14 +230,14 @@
 				});
 			},
 			_pocket: function () {
-				var countElements = this._countElements('pocket');
+				var countElements = this._countElements("pocket");
 
 				$.ajax({
 					type: "GET",
 					dataType: "xml",
 					url: "https://query.yahooapis.com/v1/public/yql",
 					data: {
-						q: "SELECT content FROM data.headers WHERE url='https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url=" + this.$url + "' and ua='#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36'",
+						q: "SELECT content FROM data.headers WHERE url="https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url=" + this.$url + "" and ua="#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36"",
 						format: "xml",
 						env: "http://datatables.org/alltables.env"
 					},
