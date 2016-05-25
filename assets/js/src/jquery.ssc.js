@@ -130,6 +130,8 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
+                    cache: true,
+                    async: true,
                     url: "https://api.facebook.com/method/links.getStats?callback=?",
                     data: {
                         urls: this.$url,
@@ -151,11 +153,14 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
+                    cache: true,
+                    async: true,
                     url: "https://opensharecount.com/count.json?callback=?",
                     data: {
                         url: this.$url
                     },
                     success: function(data) {
+                        console.log(data.count);
                         var count = sscNumberFormat(data.count);
 
                         countElements.text(count);
@@ -171,6 +176,8 @@
                 $.ajax({
                     type: "GET",
                     dataType: "xml",
+                    cache: true,
+                    async: true,
                     url: "https://query.yahooapis.com/v1/public/yql",
                     data: {
                         q: "SELECT content FROM data.headers WHERE url=\"https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + this.$url + "\" and ua=\"#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36\"",
@@ -195,6 +202,8 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
+                    cache: true,
+                    async: true,
                     url: "https://b.hatena.ne.jp/entry.count?callback=?",
                     data: {
                         url: this.$url
@@ -215,6 +224,8 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
+                    cache: true,
+                    async: true,
                     url: "https://www.linkedin.com/countserv/count/share?callback=?",
                     data: {
                         url: this.$url
@@ -235,6 +246,8 @@
                 $.ajax({
                     type: "GET",
                     dataType: "xml",
+                    cache: true,
+                    async: true,
                     url: "https://query.yahooapis.com/v1/public/yql",
                     data: {
                         q: "SELECT content FROM data.headers WHERE url=\"https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url=" + this.$url + "\" and ua=\"#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36\"",
