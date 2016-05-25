@@ -156,11 +156,11 @@
                     cache: true,
                     async: true,
                     url: "https://opensharecount.com/count.json?callback=?",
+                    // url: "http://counts.twitcount.com/counts.php?callback=?",
                     data: {
                         url: this.$url
                     },
                     success: function(data) {
-                        console.log(data.count);
                         var count = sscNumberFormat(data.count);
 
                         countElements.text(count);
