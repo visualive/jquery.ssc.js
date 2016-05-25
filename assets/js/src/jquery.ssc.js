@@ -151,7 +151,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "https://opensharecount.com/count.json",
+                    url: "https://opensharecount.com/count.json?callback=?",
                     data: {
                         url: this.$url
                     },
