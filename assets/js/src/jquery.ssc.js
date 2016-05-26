@@ -2,9 +2,9 @@
  * Social Shared Count - jQuery plugin
  * Author: KUCKLU ( VisuAlive )
  * Created date: 11.27.2014
- * Updated date: 09.18.2015
- * Version: 1.1.6
- * Licensed under the MIT license or GNU General Public License v2
+ * Updated date: 05.26.2016
+ * Version: 1.1.7
+ * Licensed under the MIT license or GNU General Public License v3
  */
 ;(function ($, window, document, undefined) {
     "use strict";

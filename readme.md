@@ -6,9 +6,11 @@ Can get the count that your URL has been shared on social networking sites. This
 
 ## License
 
-Licensed under the MIT license or GNU General Public License v2
+Licensed under the MIT license or GNU General Public License v3
 
 ## Change logs
+* Version: 1.1.7  
+Revival orf the tweet count.
 * Version: 1.1.6  
 Supported the Zepto.
 * Version: 1.1.5  
