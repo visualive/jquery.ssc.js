@@ -19,7 +19,6 @@ var gulp        = require("gulp"),
 // ===== Scss build ===== //
 gulp.task("scss", function(){
     gulp.src(sources.scss)
-       .pipe($.plumber())
        .pipe($.compass({
            config_file: "config.rb",
            comments:     false,
@@ -32,10 +31,15 @@ gulp.task("scss", function(){
 // ===== Css optimaize ===== //
 gulp.task("css", function(){
     gulp.src(sources.css)
-       .pipe($.plumber())
-       .pipe($.autoprefixer("last 2 version", "ie 8", "ios 6", "android 2.3"))
        .pipe($.csscomb("csscomb.json"))
-       .pipe(cmq())
+       .pipe($.pleeease({
+            fallbacks: {
+                autoprefixer: ["last 2 versions", "ie 10"]
+            },
+            opacity: false,
+            minifier: false,
+            mqpacker: true
+        }))
        .pipe(gulp.dest(sources.cssDir))
        .pipe($.rename({suffix: ".min"}))
        .pipe($.csso())
@@ -46,7 +50,6 @@ gulp.task("css", function(){
 // ===== JS optimaize ===== //
 gulp.task("js", function(){
     gulp.src(sources.js)
-       .pipe($.plumber())
        .pipe($.rename({suffix: ".min"}))
        .pipe($.uglify({preserveComments: "some"}))
        .pipe(gulp.dest(sources.jsDestDir));
@@ -63,6 +66,6 @@ gulp.task("watch", function(){
 
 // ===== Default task ===== //
 gulp.task("default", ["scss", "css", "js"], function(){
-    gulp.run("watch");
+    gulp.start("watch");
 });
 // ===== Default task ===== //

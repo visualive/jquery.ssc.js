@@ -136,16 +136,17 @@
                     data: {
                         urls: this.$url,
                         format: "json"
-                    },
-                    success: function(data) {
+                    }
+                }).then(
+                    function(data) {
                         var count = sscNumberFormat(data[0].share_count + data[0].like_count);
 
                         countElements.text(count);
                     },
-                    error: function() {
+                    function() {
                         countElements.text(0);
                     }
-                });
+                );
             },
             _twitter: function () {
                 var countElements = this._countElements("twitter");
@@ -156,19 +157,19 @@
                     cache: true,
                     async: true,
                     url: "https://opensharecount.com/count.json?callback=?",
-                    // url: "http://counts.twitcount.com/counts.php?callback=?",
                     data: {
                         url: this.$url
-                    },
-                    success: function(data) {
+                    }
+                }).then(
+                    function(data) {
                         var count = sscNumberFormat(data.count);
 
                         countElements.text(count);
                     },
-                    error: function() {
+                    function() {
                         countElements.text(0);
                     }
-                });
+                );
             },
             _google: function () {
                 var countElements = this._countElements("google");
@@ -183,18 +184,19 @@
                         q: "SELECT content FROM data.headers WHERE url=\"https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + this.$url + "\" and ua=\"#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36\"",
                         format: "xml",
                         env: "http://datatables.org/alltables.env"
-                    },
-                    success: function (data) {
+                    }
+                }).then(
+                    function (data) {
                         var dataContent = $(data).find("content").text();
                         var dataMatch   = dataContent.match(/window\.__SSR[\s*]=[\s*]{c:[\s*](\d+)/i);
                         var count       = (dataMatch !== null) ? sscNumberFormat(dataMatch[1]) : 0;
 
                         countElements.text(count);
                     },
-                    error: function() {
+                    function() {
                         countElements.text(0);
                     }
-                });
+                );
             },
             _hatena: function () {
                 var countElements = this._countElements("hatena");
@@ -207,16 +209,17 @@
                     url: "https://b.hatena.ne.jp/entry.count?callback=?",
                     data: {
                         url: this.$url
-                    },
-                    success: function(data) {
+                    }
+                }).then(
+                    function(data) {
                         var count = sscNumberFormat(data);
 
                         countElements.text(count);
                     },
-                    error: function() {
+                    function() {
                         countElements.text(0);
                     }
-                });
+                );
             },
             _linkedin: function () {
                 var countElements = this._countElements("linkedin");
@@ -229,16 +232,17 @@
                     url: "https://www.linkedin.com/countserv/count/share?callback=?",
                     data: {
                         url: this.$url
-                    },
-                    success: function(data) {
+                    }
+                }).then(
+                    function(data) {
                         var count = sscNumberFormat(data.count);
 
                         countElements.text(count);
                     },
-                    error: function() {
+                    function() {
                         countElements.text(0);
                     }
-                });
+                );
             },
             _pocket: function () {
                 var countElements = this._countElements("pocket");
@@ -253,18 +257,19 @@
                         q: "SELECT content FROM data.headers WHERE url=\"https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url=" + this.$url + "\" and ua=\"#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36\"",
                         format: "xml",
                         env: "http://datatables.org/alltables.env"
-                    },
-                    success: function (data) {
+                    }
+                }).then(
+                    function (data) {
                         var dataContent = $(data).find("content").text();
                         var dataMatch   = dataContent.match(/<em\sid=\"cnt\">([0-9]+)<\/em>/i);
                         var count       = (dataMatch !== null) ? sscNumberFormat(dataMatch[1]) : 0;
 
                         countElements.text(count);
                     },
-                    error: function() {
+                    function() {
                         countElements.text(0);
                     }
-                });
+                );
             }
         };
     };
@@ -277,4 +282,4 @@
     };
 
     return ClassSocialSharedCount;
-})(window.jQuery||window.Zepto, window, document);
+})(window.jQuery, window, document);
