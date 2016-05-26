@@ -1,6 +1,6 @@
 # jQuery.ssc.js - Social Shared Count
 
-Can get the count that your URL has been shared on social networking sites. This is dependent on jQuery or Zepto.
+Can get the count that your URL has been shared on social networking sites. This is dependent on jQuery.
 
 [Demo & Document](https://visualive.github.io/jquery.ssc.js/)
 
