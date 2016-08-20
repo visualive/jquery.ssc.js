@@ -132,14 +132,14 @@
                     dataType: "jsonp",
                     cache: true,
                     async: true,
-                    url: "https://api.facebook.com/method/links.getStats?callback=?",
+                    timeout: 5000,
+                    url: "https://graph.facebook.com/",
                     data: {
-                        urls: this.$url,
-                        format: "json"
+                        id: this.$url
                     }
                 }).then(
                     function(data) {
-                        var count = sscNumberFormat(data[0].share_count + data[0].like_count);
+                        var count = sscNumberFormat(data.share.share_count);
 
                         countElements.text(count);
                     },
