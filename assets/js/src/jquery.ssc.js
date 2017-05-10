@@ -139,7 +139,7 @@
                     }
                 }).then(
                     function(data) {
-                        var count = sscNumberFormat(data.share.share_count);
+                        var count = (undefined !== data.share && null !== data.share) ? sscNumberFormat(data.share.share_count) : 0;
 
                         countElements.text(count);
                     },
@@ -176,20 +176,18 @@
 
                 $.ajax({
                     type: "GET",
-                    dataType: "xml",
+                    dataType: "json",
                     cache: true,
                     async: true,
                     url: "https://query.yahooapis.com/v1/public/yql",
                     data: {
-                        q: "SELECT content FROM data.headers WHERE url=\"https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + this.$url + "\" and ua=\"#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36\"",
-                        format: "xml",
-                        env: "http://datatables.org/alltables.env"
+                        q: "select * from html where url=\"https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + this.$url + "\"",
+                        format: "json",
+                        env: "store://datatables.org/alltableswithkeys"
                     }
                 }).then(
                     function (data) {
-                        var dataContent = $(data).find("content").text();
-                        var dataMatch   = dataContent.match(/window\.__SSR[\s*]=[\s*]{c:[\s*](\d+)/i);
-                        var count       = (dataMatch !== null) ? sscNumberFormat(dataMatch[1]) : 0;
+                        var count = (undefined !== data.query.results.body.div.div.span.div[1].div.div.content) ? sscNumberFormat(data.query.results.body.div.div.span.div[1].div.div.content) : 0;
 
                         countElements.text(count);
                     },
@@ -249,20 +247,18 @@
 
                 $.ajax({
                     type: "GET",
-                    dataType: "xml",
+                    dataType: "json",
                     cache: true,
                     async: true,
                     url: "https://query.yahooapis.com/v1/public/yql",
                     data: {
-                        q: "SELECT content FROM data.headers WHERE url=\"https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url=" + this.$url + "\" and ua=\"#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36\"",
-                        format: "xml",
-                        env: "http://datatables.org/alltables.env"
+                        q: "select * from html where url=\"https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url=" + this.$url + "&src=" + this.$url + "\"",
+                        format: "json",
+                        env: "store://datatables.org/alltableswithkeys"
                     }
                 }).then(
                     function (data) {
-                        var dataContent = $(data).find("content").text();
-                        var dataMatch   = dataContent.match(/<em\sid=\"cnt\">([0-9]+)<\/em>/i);
-                        var count       = (dataMatch !== null) ? sscNumberFormat(dataMatch[1]) : 0;
+                        var count = (undefined !== data.query.results.body.div.a.span.em.content) ? sscNumberFormat(data.query.results.body.div.a.span.em.content) : 0;
 
                         countElements.text(count);
                     },
