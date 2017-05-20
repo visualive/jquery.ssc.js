@@ -161,6 +161,13 @@ $script('https://www.google-analytics.com/analytics.js', 'ga');
 $script.ready('bundle', function () {
     $script('https://cdn.jsdelivr.net/gh/visualive/jquery.ssc.js@latest/assets/js/dist/jquery.ssc.min.js', 'ssc');
 
+    (function($){
+        // Run the highlight.
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+    })(window.jQuery);
+
     $script.ready('ssc', function () {
         (function($){
             // Run the Social Shared Count.
@@ -173,11 +180,6 @@ $script.ready('bundle', function () {
                 linkedin: true,
                 twitterVia: 'visualivejp',
                 twitterRelated: 'kuck1u'
-            });
-
-            // Run the highlight.
-            $('pre code').each(function(i, block) {
-                hljs.highlightBlock(block);
             });
         })(window.jQuery);
     });
