@@ -155,39 +155,39 @@ setTimeout(function () {
         'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js',
     ], 'bundle');
     $script('https://www.google-analytics.com/analytics.js', 'ga');
-}, 1000);
 
-$script.ready('bundle', function () {
-    $script('https://cdn.jsdelivr.net/gh/visualive/jquery.ssc.js@latest/assets/js/dist/jquery.ssc.min.js', 'ssc');
+    $script.ready('bundle', function () {
+        $script('https://cdn.jsdelivr.net/gh/visualive/jquery.ssc.js@latest/assets/js/dist/jquery.ssc.min.js', 'ssc');
 
-    (function($){
-        // Run the highlight.
-        $('pre code').each(function(i, block) {
-            hljs.highlightBlock(block);
-        });
-    })(window.jQuery);
-
-    $script.ready('ssc', function () {
         (function($){
-            // Run the Social Shared Count.
-            $(".socialSharedCount").socialSharedCount({
-                facebook: true,
-                twitter: true,
-                google: true,
-                pocket: true,
-                hatena: true,
-                linkedin: true,
-                twitterVia: 'visualivejp',
-                twitterRelated: 'kuck1u'
+            // Run the highlight.
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
             });
         })(window.jQuery);
-    });
-});
 
-$script.ready('ga', function () {
-    ga('create', 'UA-50194676-3', 'auto');
-    ga('send', 'pageview');
-});
+        $script.ready('ssc', function () {
+            (function($){
+                // Run the Social Shared Count.
+                $(".socialSharedCount").socialSharedCount({
+                    facebook: true,
+                    twitter: true,
+                    google: true,
+                    pocket: true,
+                    hatena: true,
+                    linkedin: true,
+                    twitterVia: 'visualivejp',
+                    twitterRelated: 'kuck1u'
+                });
+            })(window.jQuery);
+        });
+    });
+
+    $script.ready('ga', function () {
+        ga('create', 'UA-50194676-3', 'auto');
+        ga('send', 'pageview');
+    });
+}, 1000);
 </script>
 </body>
 </html>
