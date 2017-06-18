@@ -157,7 +157,8 @@ $script([
 $script('https://www.google-analytics.com/analytics.js', 'ga');
 
 $script.ready('bundle', function () {
-    $script('https://cdn.jsdelivr.net/gh/visualive/jquery.ssc.js@latest/assets/js/dist/jquery.ssc.min.js', 'ssc');
+    // $script('https://cdn.jsdelivr.net/gh/visualive/jquery.ssc.js@latest/assets/js/dist/jquery.ssc.min.js', 'ssc');
+    $script('./assets/js/dist/jquery.ssc.min.js', 'ssc');
 
     (function($){
         // Run the highlight.
@@ -176,7 +177,7 @@ $script.ready('bundle', function () {
                 pocket: true,
                 hatena: true,
                 linkedin: true,
-                twitterVia: 'visualivejp',
+                twitterVia: 'kaleidpixel',
                 twitterRelated: 'kuck1u'
             });
         })(window.jQuery);

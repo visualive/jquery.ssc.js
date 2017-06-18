@@ -1,5 +1,4 @@
-*_logs/**/*.log
-*_log/**/*.log
+**/*.log
 *node_modules
 *.sass-cache
 *assets/scss/_build

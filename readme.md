@@ -9,6 +9,8 @@ Can get the count that your URL has been shared on social networking sites. This
 Licensed under the MIT license or GNU General Public License v3
 
 ## Change logs
+* Version: 1.1.10  
+It corresponds to YQL specification change.
 * Version: 1.1.9  
 It corresponds to YQL specification change.
 * Version: 1.1.8  

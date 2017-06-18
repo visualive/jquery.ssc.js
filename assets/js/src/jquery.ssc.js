@@ -2,8 +2,8 @@
  * Social Shared Count - jQuery plugin
  * Author: KUCKLU ( VisuAlive )
  * Created date: 11.27.2014
- * Updated date: 05.10.2017
- * Version: 1.1.9
+ * Updated date: 06.18.2017
+ * Version: 1.1.10
  * Licensed under the MIT license or GNU General Public License v3
  */
 ;(function ($, window, document, undefined) {
@@ -181,13 +181,15 @@
                     async: true,
                     url: "https://query.yahooapis.com/v1/public/yql",
                     data: {
-                        q: "select * from html where url=\"https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + this.$url + "\"",
+                        q: "select * from htmlstring where url=\"https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + this.$url + "\" AND xpath='//div'",
                         format: "json",
                         env: "store://datatables.org/alltableswithkeys"
                     }
                 }).then(
                     function (data) {
-                        var count = (undefined !== data.query.results.body.div.div.span.div[1].div.div.content) ? sscNumberFormat(data.query.results.body.div.div.span.div[1].div.div.content) : 0;
+                        var parser = new DOMParser(),
+                        xml = parser.parseFromString(data.query.results.result, "text/html"),
+                        count = (null !== xml.getElementById("aggregateCount")) ? sscNumberFormat(xml.getElementById("aggregateCount").innerText) : 0;
 
                         countElements.text(count);
                     },
@@ -252,13 +254,15 @@
                     async: true,
                     url: "https://query.yahooapis.com/v1/public/yql",
                     data: {
-                        q: "select * from html where url=\"https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url=" + this.$url + "&src=" + this.$url + "\"",
+                        q: "select * from htmlstring where url=\"https://widgets.getpocket.com/v1/button?label=pocket&count=horizontal&v=1&url=" + this.$url + "&src=" + this.$url + "\" AND xpath='//div'",
                         format: "json",
                         env: "store://datatables.org/alltableswithkeys"
                     }
                 }).then(
                     function (data) {
-                        var count = (undefined !== data.query.results.body.div.a.span.em.content) ? sscNumberFormat(data.query.results.body.div.a.span.em.content) : 0;
+                        var parser = new DOMParser(),
+                        xml = parser.parseFromString(data.query.results.result, "text/html"),
+                        count = (null !== xml.getElementById("cnt")) ? sscNumberFormat(xml.getElementById("cnt").innerText) : 0;
 
                         countElements.text(count);
                     },
