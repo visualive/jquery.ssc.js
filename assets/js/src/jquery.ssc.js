@@ -1,9 +1,9 @@
 /*!
  * Social Shared Count - jQuery plugin
- * Author: KUCKLU ( VisuAlive )
+ * Author: Kaleid Pixel & KUCKLU
  * Created date: 11.27.2014
- * Updated date: 06.18.2017
- * Version: 1.1.10
+ * Updated date: 08.21.2017
+ * Version: 1.1.11
  * Licensed under the MIT license or GNU General Public License v3
  */
 ;(function ($, window, document, undefined) {
@@ -13,7 +13,6 @@
         defaults = {
             facebook       : false,
             twitter        : false,
-            google         : false,
             hatena         : false,
             linkedin       : false,
             pocket         : false,
@@ -51,7 +50,6 @@
                 this.sns           = {
                     "facebook":{"name":"Facebook","url":"https://www.facebook.com/sharer/sharer.php?t=" + encodeURIComponent(this.$title) + "&u=" + encodeURIComponent(this._sanitizeUrl(this.$url))},
                     "twitter":{"name":"Twitter","url":"https://twitter.com/intent/tweet?text=" + encodeURIComponent(this.$title) + "&url=" + encodeURIComponent(this._sanitizeUrl(this.$url)) + this._sanitizeText(this.settings.twitterVia, "via") + this._sanitizeText(this.settings.twitterRelated, "related")},
-                    "google":{"name":"Google+","url":"https://plus.google.com/share?hl=" + encodeURIComponent(this.$title) + "&url=" + encodeURIComponent(this._sanitizeUrl(this.$url))},
                     "hatena":{"name":"Hatena","url":"http://b.hatena.ne.jp/append?" + encodeURIComponent(this._sanitizeUrl(this.$url))},
                     "linkedin":{"name":"LinkedIn","url":"https://www.linkedin.com/shareArticle?mini=true&title=" + encodeURIComponent(this.$title) + "&url=" + encodeURIComponent(this._sanitizeUrl(this.$url))},
                     "pocket":{"name":"Pocket","url":"https://getpocket.com/save?title=" + encodeURIComponent(this.$title) + "&url=" + encodeURIComponent(this._sanitizeUrl(this.$url))}
@@ -68,7 +66,6 @@
                     this._createCountBox();
                     if (this.settings.facebook === true) { this._facebook(); }
                     if (this.settings.twitter === true) { this._twitter(); }
-                    if (this.settings.google === true) { this._google(); }
                     if (this.settings.hatena === true) { this._hatena(); }
                     if (this.settings.linkedin === true) { this._linkedin(); }
                     if (this.settings.pocket === true) { this._pocket(); }
@@ -163,33 +160,6 @@
                 }).then(
                     function(data) {
                         var count = sscNumberFormat(data.count);
-
-                        countElements.text(count);
-                    },
-                    function() {
-                        countElements.text(0);
-                    }
-                );
-            },
-            _google: function () {
-                var countElements = this._countElements("google");
-
-                $.ajax({
-                    type: "GET",
-                    dataType: "json",
-                    cache: true,
-                    async: true,
-                    url: "https://query.yahooapis.com/v1/public/yql",
-                    data: {
-                        q: "select * from htmlstring where url=\"https://plusone.google.com/_/+1/fastbutton?hl=ja&url=" + this.$url + "\" AND xpath='//div'",
-                        format: "json",
-                        env: "store://datatables.org/alltableswithkeys"
-                    }
-                }).then(
-                    function (data) {
-                        var parser = new DOMParser(),
-                        xml = parser.parseFromString(data.query.results.result, "text/html"),
-                        count = (null !== xml.getElementById("aggregateCount")) ? sscNumberFormat(xml.getElementById("aggregateCount").innerText) : 0;
 
                         countElements.text(count);
                     },

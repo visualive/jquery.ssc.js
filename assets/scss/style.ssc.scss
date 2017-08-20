@@ -183,9 +183,6 @@ $medium-down: "only screen and (max-width: 768px)";
   }
 
   &_items-pocket {
-    @media #{$medium-down} {
-      display: none;
-    }
     .socialSharedCount_list_items_name {
       border-color: #d3505a;
       background-color: #d3505a;

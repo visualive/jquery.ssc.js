@@ -160,7 +160,4 @@
     .socialSharedCount_list_items_count:after {
         content: none;
     }
-    .socialSharedCount_list_items-pocket {
-        display: none;
-    }
 }
